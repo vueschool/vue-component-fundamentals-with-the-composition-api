@@ -4,7 +4,6 @@ import PlanPicker from './components/PlanPicker.vue'
 
 <template>
   <div class="content">
-    <PlanPicker />
     <h1 class="title">Coffee Plans</h1>
 
     <h2 class="subtitle">
