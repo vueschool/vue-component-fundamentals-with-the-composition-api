@@ -1,12 +1,14 @@
 <script setup>
-import TodoItem from './components/TodoItem.vue'
+import FancyButton from './components/FancyButton.vue'
 </script>
 
 <template>
   <div class="content">
-    <h1>My Todo List</h1>
-    <TodoItem></TodoItem>
-    <TodoItem></TodoItem>
-    <TodoItem></TodoItem>
+    <FancyButton>
+      <template #icon="{ hover }">
+        {{ hover ? '👋' : '💪' }}
+      </template>
+      Submit
+    </FancyButton>
   </div>
 </template>
