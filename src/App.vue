@@ -1,11 +1,32 @@
 <script setup>
-import GithubCard from './components/GithubCard.vue'
+import AppAlert from './components/AppAlert.vue'
+import { ref } from 'vue'
 
-// https://api.github.com/users/[username]
+const alerts = ref([
+  {
+    type: 'success',
+    message: 'Your purchase has been confirmed!'
+  },
+  {
+    type: 'error',
+    message: 'Error! Task failed successfully.'
+  }
+])
 </script>
 
 <template>
-  <GithubCard username="danielkellyio"></GithubCard>
-  <GithubCard username="hootlex"></GithubCard>
-  <GithubCard username="MooseSaeed"></GithubCard>
+  <div class="p-5">
+    <AppAlert
+      v-for="alert in alerts"
+      :key="alert.message"
+      :type="alert.type"
+      @closed="alerts = alerts.filter((a) => a.message !== alert.message)"
+    >
+      {{ alert.message }}
+    </AppAlert>
+
+    <pre>
+      {{ alerts }}
+    </pre>
+  </div>
 </template>
